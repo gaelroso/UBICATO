@@ -201,13 +201,52 @@ svg.mini{position:absolute;left:12px;bottom:76px;width:118px;height:118px;border
 code{font:12px/1.35 ui-monospace,Menlo,Consolas,monospace;color:var(--muted);overflow-wrap:anywhere;display:block;-webkit-user-select:all;user-select:all}
 @media (hover:hover) and (pointer:fine){.btn:hover{filter:brightness(1.06)}.pick button:hover{background:var(--bg)}.chips button:hover{filter:brightness(.96)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---- v4 visual ---- */
+body{background:radial-gradient(900px 420px at 50% -120px,rgba(0,169,206,.16),transparent 70%),var(--bg)}
+.top{background:radial-gradient(260px 180px at 92% -30px,rgba(0,169,206,.55),transparent 70%),radial-gradient(200px 160px at 8% 120%,rgba(255,205,0,.22),transparent 70%),linear-gradient(165deg,#00294a,#005289);padding-bottom:17px;border-radius:0 0 28px 28px;box-shadow:0 10px 30px rgba(0,40,80,.28);z-index:2}
+.top::after{left:28px;right:28px;border-radius:3px 3px 0 0}
+.logo{height:46px;max-width:128px;border-radius:14px;padding:6px 10px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.brand b{font-size:30px}
+.here{background:rgba(255,255,255,.16);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.demo{margin:10px 16px 0;border:1px solid var(--line);border-radius:12px;padding:7px 12px}
+.view{padding-top:16px}
+.hero{background:linear-gradient(140deg,#00355f,#005289 60%,#0d7fb0);border-radius:24px;padding:18px 18px 20px;color:#fff;position:relative;overflow:hidden;box-shadow:0 14px 30px rgba(0,60,110,.28)}
+.hero::after{content:"";position:absolute;right:-36px;top:-36px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,235,.55),transparent 68%)}
+.hero h2{color:#fff;position:relative}.hero .eb{color:#7fe0f4;position:relative}.hero .muted{color:rgba(255,255,255,.82);position:relative}
+.tip{border-radius:22px}
+.seg button{border-radius:20px;transition:transform .14s var(--ease),box-shadow .2s}
+.seg button:active{transform:scale(.96)}
+.ev{border-radius:24px;padding:16px 16px 14px;box-shadow:inset 6px 0 0 var(--st),var(--shadow);animation:entra .45s var(--ease) both}
+.ev:nth-child(2){animation-delay:.05s}.ev:nth-child(3){animation-delay:.1s}.ev:nth-child(4){animation-delay:.15s}.ev:nth-child(n+5){animation-delay:.2s}
+@keyframes entra{from{opacity:0;transform:translateY(12px)}}
+.ev-t{display:flex;gap:12px;align-items:flex-start;margin-top:4px}
+.bd{flex:none;width:52px;border-radius:16px;background:linear-gradient(160deg,#00355f,#005289);color:#fff;display:grid;justify-items:center;padding:7px 0 6px;line-height:1}
+.bd b{font:800 24px/1 var(--f-d)}.bd span{font:700 11px var(--f-d);letter-spacing:.1em;text-transform:uppercase;color:var(--sun);margin-top:3px}
+.s-fin .bd{background:linear-gradient(160deg,#6b7a8c,#8896a6)}
+.ev h3{margin-top:0;font-size:19px}
+.btn{background:linear-gradient(180deg,#ffd633,#ffcd00);box-shadow:0 6px 14px rgba(255,205,0,.35),inset 0 -2px 0 rgba(0,0,0,.08);border-radius:16px}
+.btn.sec{background:transparent;box-shadow:inset 0 0 0 1.5px var(--path)}
+.tabs{margin:0 12px calc(10px + env(safe-area-inset-bottom,0px));padding-bottom:0;border:1px solid var(--line);border-radius:26px;box-shadow:0 12px 30px rgba(0,40,80,.18);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);background:color-mix(in srgb,var(--surface) 92%,transparent);z-index:3}
+.tabs button{min-height:62px;border-radius:22px}
+.tabs button[aria-current=page]{background:color-mix(in srgb,var(--act) 10%,transparent)}
+.tabs button[aria-current=page]::before{top:auto;bottom:5px;left:42%;right:42%;height:4px;border-radius:4px}
+.view>*{flex-shrink:0}
+.view{padding-bottom:96px}
+.view.map,.view.ar{padding-bottom:0}
+#rmap,.od{border-radius:24px}
+.chips button{box-shadow:0 2px 8px rgba(0,40,80,.1)}
+.zoom{bottom:68px}
+.sheet{border-radius:30px 30px 0 0;box-shadow:0 -10px 40px rgba(0,20,40,.3)}
+.sheet::before{content:"";width:44px;height:5px;border-radius:5px;background:var(--line);align-self:center;margin-top:-8px}
+.toast{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 </style>
 </head>
 <body>
 <div class="app">
 <header class="top">
 <div class="brand"><b><svg viewBox="0 0 22 26" aria-hidden="true"><path d="M11 0C5 0 .5 4.5.5 10.3.5 17 11 26 11 26s10.5-9 10.5-15.7C21.5 4.5 17 0 11 0zm0 14.2a3.9 3.9 0 1 1 0-7.8 3.9 3.9 0 0 1 0 7.8z"/></svg>Ubicato</b><span>Campus UCB · La Paz</span></div>
-<div class="tr"><img class="logo" src="logo-ucb.png" alt="Universidad Católica Boliviana" onerror="this.parentNode.classList.add('nologo');this.remove()"><button class="ico" data-act="go" data-v="ajustes" aria-label="Administrar datos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M19 7h1M4 17h1M11 17h9"/><circle cx="16" cy="7" r="2.5"/><circle cx="8" cy="17" r="2.5"/></svg></button></div>
+<div class="tr"><img class="logo" src="logo-ucb.png" alt="Universidad Católica Boliviana" onerror="if(!this.dataset.r){this.dataset.r=1;this.src='https://lpz.ucb.edu.bo/wp-content/uploads/2021/04/logo-ucb-colores-nal.png'}else this.remove()"><button class="ico" data-act="go" data-v="ajustes" aria-label="Administrar datos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M19 7h1M4 17h1M11 17h9"/><circle cx="16" cy="7" r="2.5"/><circle cx="8" cy="17" r="2.5"/></svg></button></div>
 <button class="here" data-act="origen"><span>Estás en</span><b id="hereN"></b><i>Cambiar</i></button>
 </header>
 <div class="demo" id="demo" hidden><b>Datos de ejemplo.</b> Bloques según el plano; posiciones y eventos por confirmar.</div>
@@ -339,7 +378,7 @@ const VIEWS={
 eventos(){const t=Date.now(),g={live:[],soon:[],next:[],fin:[]};for(const e of D.eventos){const s=est(e,t);g[s.k]?.push({e,s})}
  g.live.sort((a,b)=>new Date(a.e.fin)-new Date(b.e.fin));g.soon.sort((a,b)=>new Date(a.e.fin)-new Date(b.e.fin));g.next.sort((a,b)=>new Date(a.e.inicio)-new Date(b.e.inicio));g.fin.sort((a,b)=>new Date(b.e.fin)-new Date(a.e.fin));
  const N={live:'En curso',soon:'Por terminar',next:'Próximos',fin:'Pasados'},V0={fin:'Aún no hay eventos pasados.',live:'No hay eventos en curso en este momento.',soon:'Ningún evento termina en los próximos 30 minutos.',next:'No hay eventos próximos registrados.'},L=g[S.tab],ya=g.live.length+g.soon.length,tip=!store.get('.t'),inst=!store.get('.i')&&!window.matchMedia('(display-mode: standalone)').matches&&!navigator.standalone&&(S.inst||/iphone|ipad|ipod/i.test(navigator.userAgent));
- return`<section class="view"><div class="hero"><p class="eb">Ahora en la UCB</p><h2>${ya?ya+(ya===1?' evento sucede ahora':' eventos suceden ahora'):'No hay eventos en este momento'}</h2><p class="muted">Toca uno y te guiamos desde ${esc(PT[S.origen].nombre)}.</p></div>${inst?`<div class="tip"><p><b>Instala Ubicato en tu celular.</b> Se abre como app, sin navegador, y funciona sin internet.</p><div class="row"><button class="btn sm" data-act="instalar">Instalar app</button><button class="btn sec sm" data-act="instOff">Ahora no</button></div></div>`:''}${tip?`<div class="tip"><p><b>Partimos de ${esc(PT[S.origen].nombre)}.</b> Si estás en otro lugar, escanea el QR que ves ahí o cámbialo.</p><div class="row"><button class="btn sm" data-act="origen">Cambiar lugar</button><button class="btn sec sm" data-act="tipOff">Entendido</button></div></div>`:''}<div class="seg" role="group" aria-label="Estado de los eventos">${Object.keys(N).map(k=>`<button class="s-${k}" data-act="tab" data-t="${k}" aria-pressed="${S.tab===k}"><b>${g[k].length}</b>${N[k]}</button>`).join('')}</div><div class="list">${L.length?L.map(({e,s})=>{const p=PT[e.punto],r=p&&ruta(S.origen,e.punto,S.acc),mn=r&&r.ids.length>1?Math.max(1,Math.ceil(r.min)):0,u=s.k==='soon'?`Quedan ${dur(new Date(e.fin)-t)}${mn?' · llegas en '+mn+' min':''}`:s.k==='live'&&mn?`Llegas en ${mn} min`:'';return`<article class="ev s-${s.k}"><div class="ev-h"><span class="pill">${s.pill}</span><span>${s.txt}</span></div><h3>${esc(e.nombre)}</h3><p class="ev-l">${esc(p?p.nombre:'Lugar por definir')}${p?.piso?', piso '+esc(p.piso):''} · ${cuando(e)}</p>${e.desc?`<p class="ev-d">${esc(e.desc)}</p>`:''}${u?`<p class="ev-u">${u}</p>`:''}${!p||s.k==='fin'?'':r&&r.ids.length<2?'<p class="ok">Estás en el lugar de este evento.</p>':`<div class="acts"><button class="btn" data-act="ir" data-id="${esc(e.punto)}">Cómo llegar <span>${r?fm(r):'sin ruta accesible'}</span></button><button class="btn sec sm" data-act="share" data-id="${esc(e.id)}" aria-label="Compartir ${esc(e.nombre)}">Compartir</button></div>`}</article>`}).join(''):`<p class="empty">${V0[S.tab]}</p>`}</div></section>`},
+ return`<section class="view"><div class="hero"><p class="eb">Ahora en la UCB</p><h2>${ya?ya+(ya===1?' evento sucede ahora':' eventos suceden ahora'):'No hay eventos en este momento'}</h2><p class="muted">Toca uno y te guiamos desde ${esc(PT[S.origen].nombre)}.</p></div>${inst?`<div class="tip"><p><b>Instala Ubicato en tu celular.</b> Se abre como app, sin navegador, y funciona sin internet.</p><div class="row"><button class="btn sm" data-act="instalar">Instalar app</button><button class="btn sec sm" data-act="instOff">Ahora no</button></div></div>`:''}${tip?`<div class="tip"><p><b>Partimos de ${esc(PT[S.origen].nombre)}.</b> Si estás en otro lugar, escanea el QR que ves ahí o cámbialo.</p><div class="row"><button class="btn sm" data-act="origen">Cambiar lugar</button><button class="btn sec sm" data-act="tipOff">Entendido</button></div></div>`:''}<div class="seg" role="group" aria-label="Estado de los eventos">${Object.keys(N).map(k=>`<button class="s-${k}" data-act="tab" data-t="${k}" aria-pressed="${S.tab===k}"><b>${g[k].length}</b>${N[k]}</button>`).join('')}</div><div class="list">${L.length?L.map(({e,s})=>{const p=PT[e.punto],r=p&&ruta(S.origen,e.punto,S.acc),mn=r&&r.ids.length>1?Math.max(1,Math.ceil(r.min)):0,u=s.k==='soon'?`Quedan ${dur(new Date(e.fin)-t)}${mn?' · llegas en '+mn+' min':''}`:s.k==='live'&&mn?`Llegas en ${mn} min`:'';return`<article class="ev s-${s.k}"><div class="ev-h"><span class="pill">${s.pill}</span><span>${s.txt}</span></div><div class="ev-t"><div class="bd"><b>${new Date(e.inicio).getDate()}</b><span>${new Date(e.inicio).toLocaleDateString('es-BO',{month:'short'}).replace('.','')}</span></div><div><h3>${esc(e.nombre)}</h3><p class="ev-l">${esc(p?p.nombre:'Lugar por definir')}${p?.piso?', piso '+esc(p.piso):''} · ${cuando(e)}</p></div></div>${e.desc?`<p class="ev-d">${esc(e.desc)}</p>`:''}${u?`<p class="ev-u">${u}</p>`:''}${!p||s.k==='fin'?'':r&&r.ids.length<2?'<p class="ok">Estás en el lugar de este evento.</p>':`<div class="acts"><button class="btn" data-act="ir" data-id="${esc(e.punto)}">Cómo llegar <span>${r?fm(r):'sin ruta accesible'}</span></button><button class="btn sec sm" data-act="share" data-id="${esc(e.id)}" aria-label="Compartir ${esc(e.nombre)}">Compartir</button></div>`}</article>`}).join(''):`<p class="empty">${V0[S.tab]}</p>`}</div></section>`},
 mapa(){const F=[['todo','Todo'],['eventos','Con eventos ahora'],['servicio','Servicios'],['bloque','Bloques'],['espacio','Espacios'],['entrada','Entradas']];
  return`<section class="view map"><div class="chips" role="group" aria-label="Filtrar puntos">${F.map(([k,n])=>`<button data-act="filtro" data-f="${k}" aria-pressed="${S.filtro===k}">${n}</button>`).join('')}</div><svg id="map" class="map" role="img" aria-label="Mapa del campus con puntos de interés"></svg><div class="zoom"><button data-act="zin" aria-label="Acercar">+</button><button data-act="zout" aria-label="Alejar">−</button><button data-act="zfit" aria-label="Ver todo el campus">⤢</button></div><p class="leg"><span><i class="l1"></i>evento en curso</span><span><i class="l2"></i>por terminar</span><span><i class="l3"></i>gradas</span><span>Toca un punto para ver qué hay.</span></p></section>`},
 ruta(){const opt=s=>D.puntos.map(p=>`<option value="${esc(p.id)}"${p.id===s?' selected':''}>${esc(p.nombre)}</option>`).join('');let b;
